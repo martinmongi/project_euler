@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-from lib import cribe
+from lib import sieve
 import itertools
 
 max_i = 10**6
-c = cribe(max_i)
+c = sieve(max_i)
 
 max_count = 0
 for i in range(56003, max_i, 2):

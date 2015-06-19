@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from lib import cribe
+from lib import sieve
 
-c = cribe(10**6)
+c = sieve(10**6)
 
 primes = []
 

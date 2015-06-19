@@ -1,5 +1,5 @@
 
-def cribe(n):
+def sieve(n):
 	c = [False, False] + [True]*(n-1)
 	for i in range(n+1):
 		if c[i]:
@@ -17,4 +17,41 @@ def prime(n):
 		if n % i == 0:
 			return False
 	return True
+
+def digits(n):
+	return list(str(n))
+
+def fact(n):
+	if n == 0:
+		return 1
+	else:
+		return n*fact(n-1)
+
+def choose(r,n):
+	return fact(n)/fact(n-r)/fact(r)
+
+def coprimes(a,b):
+	return gcd(a,b) == 1
+
+def gcd(a,b):
+	if min(a,b) == 0:
+		return max(a,b)
+	return gcd(min(a,b), max(a,b) % min(a,b))
+
+def factorize(n):
+	i = 2
+	factors = []
+	divided = True
+	while i <= n**0.5 or divided:
+		if divided:
+			i = 2
+			divided = False
+		if n % i == 0:
+			factors.append(i)
+			n = n/i
+			divided = True
+		i = i + 1
+	if n > 1:
+		factors.append(int(n))
+	return factors
 
