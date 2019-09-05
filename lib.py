@@ -1,4 +1,6 @@
 
+from collections import Counter
+
 def sieve(n):
 	c = [False, False] + [True]*(n-1)
 	for i in range(n+1):
@@ -55,3 +57,24 @@ def factorize(n):
 		factors.append(int(n))
 	return factors
 
+def factorization_sieve(n):
+	c = [Counter() for i in range(n+1)]
+	for i in range(2, n+1):
+		if c[i] == Counter([]):
+			c[i][i] += 1
+			for j in range(2*i, n+1, i):
+				aux = j
+				while aux % i == 0:
+					c[j][i] += 1
+					aux /= i
+
+	return c
+
+
+def div_sieve(n):
+	c = [[1] for i in range(n + 1)]
+	for i in range(2, n + 1):
+		for j in range(i, n + 1, i):
+			c[j].append(i)
+
+	return c
